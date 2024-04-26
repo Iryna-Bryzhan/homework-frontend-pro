@@ -27,6 +27,7 @@
 
 // console.log(book.find("Victor"));
 
+
 // ** Створіть функцію конструктор на базі якої будуть створені обʼєкти книг контактів
 
 const contacts = [];
@@ -41,7 +42,7 @@ function Book() {
   this.contacts = [];
 }
 
-Book.prototype.find = function(name){
+Book.prototype.find = function (name) {
   for (const contact of this.contacts) {
     if (contact.name === name) {
       return contact;
@@ -50,7 +51,7 @@ Book.prototype.find = function(name){
   return null;
 };
 
-Book.prototype.add = function(contact){
+Book.prototype.add = function (contact) {
   this.contacts.push(contact);
 };
 
@@ -59,26 +60,22 @@ const mappedContacts = contacts.map((el) => {
 });
 
 const book = new Book();
-const book2 = new Book()
+const book2 = new Book();
 
 const contact1 = new Contact("Victor", "+380686563002", "qwerty@gmail.com");
 const contact2 = new Contact("Vika", "+380678565325", "qwerty1@gmail.com");
 const contact3 = new Contact("Sveta", "+380686563002", "qwerty2@gmail.com");
 const contact4 = new Contact("Sergii", "+380686565632", "qwerty3@gmail.com");
 
+book.add(contact1);
+book.add(contact2);
+book.add(contact3);
 
-book.add(contact1)
-book.add(contact2)
-book.add(contact3)
-
-
-book2.add(contact2)
-book2.add(contact4)
+book2.add(contact2);
+book2.add(contact4);
 
 console.log(book);
 console.log(book2);
 
-
 console.log(book.find("Victor"));
 console.log(book.find("Sveta"));
-
