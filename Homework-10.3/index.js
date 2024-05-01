@@ -79,3 +79,6 @@ console.log(book2);
 
 console.log(book.find("Victor"));
 console.log(book.find("Sveta"));
+
+let arr = [1,2,3,4,5]
+arr.copyWithin; // [1,2,3,4,5,1,2,3,4,5]

@@ -19,10 +19,10 @@
 // ** Створіть функцію конструктор на базі якої будуть створені обʼєкти користувачів
 
 function User(name, surname, age, location) {
-  (this.name = name),
-    (this.surname = surname),
-    (this.age = age),
-    (this.location = location);
+  this.name = name,
+  this.surname = surname,
+  this.age = age,
+  this.location = location;
 }
 
 User.prototype.getInfo = function () {
