@@ -6,7 +6,7 @@ for (let i = 1; i <= 10; i++) {
   for (let j = 1; j <= 10; j++) {
     let td = document.createElement("td");
     td.textContent = i * j;
-    table.appendChild(td);
+    table.append(td);
   }
-  table.appendChild(tr);
+  table.append(tr);
 }

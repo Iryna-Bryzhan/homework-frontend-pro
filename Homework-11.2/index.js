@@ -15,7 +15,7 @@ let imgList = img.map((el) => {
   img.src = `./img/${el}`;
   img.style.width = "800px";
   img.style.display = "none";
-  div.appendChild(img);
+  div.append(img);
   return img;
 });
 
