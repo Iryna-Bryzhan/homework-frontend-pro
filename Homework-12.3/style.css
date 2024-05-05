@@ -1,0 +1,43 @@
+body {
+  font-size: 18px;
+}
+.container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+#todoList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 0 0 0 10px;
+  margin-bottom: 10px;
+}
+input {
+  font-size: 18px;
+  padding: 10px 20px 10px 5px;
+  width: 100%;
+  margin-right: 10px;
+}
+button {
+  font-size: 18px;
+  background-color: rgb(26, 193, 26);
+  border: none;
+  padding: 0px 20px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 50px;
+}
+.deleteBtn {
+  cursor: pointer;
+  background-color: red;
+  border: none;
+  padding: 10px 20px;
+}
+.add-task {
+  display: flex;
+  width: 100%;
+}
