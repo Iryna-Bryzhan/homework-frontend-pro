@@ -1,0 +1,27 @@
+.container {
+  width: 600px;
+  margin: 3% auto;
+  background-color: #f5f5fa;
+  padding: 3%;
+  border-radius: 10px;
+}
+h6 {
+  color: grey;
+  margin-bottom: 10px;
+}
+button {
+  width: 100%;
+}
+input {
+  border: none;
+}
+.form-control::placeholder {
+  color: grey;
+}
+.error-name,
+.error-message,
+.error-phone,
+.error-email {
+  color: red;
+  font-size: 15px;
+}
