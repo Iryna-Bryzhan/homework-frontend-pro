@@ -1,8 +1,9 @@
 const name = document.forms.form.elements.name;
 
+const errorName = document.querySelector(".error-name");
+
 function validateName() {
   const nameValue = document.forms.form.elements.name.value;
-  const errorName = document.querySelector(".error-name");
   if (nameValue === "") {
     showError(errorName, "Введіть своє ім'я");
     return false;
@@ -16,9 +17,10 @@ name.addEventListener("blur", validateName);
 
 const message = document.forms.form.elements.message;
 
+const errorMessage = document.querySelector(".error-message");
+
 function validateMessage() {
   const messageValue = document.forms.form.elements.message.value;
-  const errorMessage = document.querySelector(".error-message");
   if (messageValue.length < 5) {
     showError(errorMessage, "Повідомлення має бути не менше 5 символів");
     return false;
@@ -32,9 +34,10 @@ message.addEventListener("blur", validateMessage);
 
 const phone = document.forms.form.elements.phone;
 
+const errorPhone = document.querySelector(".error-phone");
+
 function validatePhone() {
   const phoneValue = document.forms.form.elements.phone.value;
-  const errorPhone = document.querySelector(".error-phone");
   const phoneRegex = /^\+380\d{9}$/;
 
   if (phoneValue === "") {
@@ -51,15 +54,12 @@ function validatePhone() {
 
 phone.addEventListener("blur", validatePhone);
 
-function showError(element, mesage) {
-  element.textContent = mesage;
-}
-
 const email = document.forms.form.elements.email;
+
+const errorEmail = document.querySelector(".error-email");
 
 function validateEmail() {
   const emailValue = document.forms.form.elements.email.value;
-  const errorEmail = document.querySelector(".error-email");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (emailValue === "") {
     showError(errorEmail, "Введіть email");
@@ -74,6 +74,10 @@ function validateEmail() {
 }
 
 email.addEventListener("blur", validateEmail);
+
+function showError(element, mesage) {
+  element.textContent = mesage;
+}
 
 const form = document.forms.form;
 form.addEventListener("submit", (e) => {

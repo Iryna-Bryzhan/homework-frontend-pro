@@ -1,0 +1,27 @@
+body{
+  background-color: rgba(156, 66, 241, 0.321);
+}
+
+.carousel_item {
+  display: none;
+  position: relative;
+  float: left;
+  width: 100%;
+  /* margin-right: -100%; */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: transform .6s ease-in-out;
+}
+.active{
+  display: block;
+}
+
+.carousel-control-next:disabled,
+.carousel-control-prev:disabled{
+    opacity: 0.5;
+  
+}
+
+.none{
+  display: none;
+}
