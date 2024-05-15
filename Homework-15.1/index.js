@@ -88,21 +88,41 @@ function doneTask(event) {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  arrTask = JSON.parse(localStorage.getItem("tasks")) || [];
+function refreshUI() {
+  while (list.firstChild) {
+    list.firstChild.remove();
+  }
+
   arrTask.forEach((task) => {
     addTaskToList(task.text, task.done);
   });
+}
+
+buttonClear.addEventListener("click", () => {
+  localStorage.clear();
+  arrTask.length = 0;
+  refreshUI();
 });
 
 list.addEventListener("click", deleteTask);
 list.addEventListener("click", doneTask);
 buttonAdd.addEventListener("click", addTask);
 
-buttonClear.addEventListener("click", () => {
-  localStorage.clear();
-  arrTask.length = 0;
-  while (list.firstChild) {
-    list.firstChild.remove();
+window.addEventListener("DOMContentLoaded", () => {
+  arrTask = JSON.parse(localStorage.getItem("tasks")) || [];
+  refreshUI();
+});
+
+function updateFromLocalStorage() {
+  const storedTasks = JSON.parse(localStorage.getItem("tasks"));
+  if (storedTasks) {
+    arrTask = storedTasks;
+    refreshUI();
+  }
+}
+
+window.addEventListener("storage", (event) => {
+  if (event.key === "tasks") {
+    updateFromLocalStorage();
   }
 });
