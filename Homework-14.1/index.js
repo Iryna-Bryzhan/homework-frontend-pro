@@ -106,3 +106,5 @@ carouselIndicators.forEach((indicator, index) => {
     showSlide(index);
   });
 });
+
+
