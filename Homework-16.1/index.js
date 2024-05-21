@@ -7,7 +7,7 @@ function Student(name, surname, birthDate, assessments = []) {
 }
 
 Student.prototype.getAge = function () {
-  let totalYear = new Date().getFullYear();
+  const totalYear = new Date().getFullYear();
   return totalYear - this.birthDate;
 };
 
@@ -16,7 +16,7 @@ Student.prototype.getAverage = function () {
   for (let i = 0; i < this.assessments.length; i++) {
     sum += this.assessments[i];
   }
-  let average = sum / this.assessments.length;
+  const average = sum / this.assessments.length;
   return average;
 };
 
@@ -41,8 +41,8 @@ Student.prototype.absent = function () {
 };
 
 Student.prototype.summary = function () {
-  let visitTrue = this.visiting.filter((el) => el === true);
-  let averageVisit = visitTrue.length / this.visiting.length;
+  const visitTrue = this.visiting.filter((el) => el === true);
+  const averageVisit = visitTrue.length / this.visiting.length;
   const averageAssessments = this.getAverage()
 
   if (averageAssessments > 90 && averageVisit > 0.9) {
@@ -85,7 +85,7 @@ class Student2{
 
 
 getAge() {
-  let totalYear = new Date().getFullYear();
+  const totalYear = new Date().getFullYear();
   return totalYear - this.birthDate;
 };
 
@@ -94,7 +94,7 @@ getAverage() {
   for (let i = 0; i < this.assessments.length; i++) {
     sum += this.assessments[i];
   }
-  let average = sum / this.assessments.length;
+  const average = sum / this.assessments.length;
   return average;
 };
 
@@ -119,8 +119,8 @@ absent() {
 };
 
 summary () {
-  let visitTrue = this.visiting.filter((el) => el === true);
-  let averageVisit = visitTrue.length / this.visiting.length;
+  const visitTrue = this.visiting.filter((el) => el === true);
+  const averageVisit = visitTrue.length / this.visiting.length;
   const averageAssessments = this.getAverage()
 
   if (averageAssessments > 90 && averageVisit > 0.9) {
