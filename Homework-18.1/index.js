@@ -24,11 +24,16 @@ function createTimer(totalSeconds) {
 function formatTime(seconds) {
   const minute = Math.floor(seconds / 60);
   const second = seconds % 60;
-  return `${String(minute).padStart(2, "0")}:${String(second).padStart(2, "0")}`;
+  return `${String(minute).padStart(2, "0")}:${String(second).padStart(
+    2,
+    "0"
+  )}`;
 }
 
 mainBtnStart.addEventListener("click", function () {
-  let inputValueTime = parseInt(document.querySelector('input[data-input="time"]').value);
+  let inputValueTime = parseInt(
+    document.querySelector('input[data-input="time"]').value
+  );
 
   if (isNaN(inputValueTime) || inputValueTime <= 0) {
     alert("Please enter a valid number of minutes.");
