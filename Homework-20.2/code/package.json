@@ -15,9 +15,7 @@
   "author": "ikot",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.24.6",
     "@babel/plugin-transform-modules-commonjs": "^7.24.6",
-    "@babel/preset-env": "^7.24.6",
     "gulp": "^4.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
@@ -30,6 +28,9 @@
     "sass": "^1.77.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.6",
+    "@babel/core": "^7.24.6",
+    "@babel/preset-env": "^7.24.6",
     "browser-sync": "^3.0.2",
     "gulp-imagemin": "^7.1.0",
     "gulp-minify-html": "^1.0.6",
