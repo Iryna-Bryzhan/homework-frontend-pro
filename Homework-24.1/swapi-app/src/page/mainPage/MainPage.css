@@ -1,0 +1,19 @@
+.mainPage-logo img {
+  width: 50%;
+}
+.mainPage-logo img {
+  width: 500px;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.main-page {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+.mainPage-menu {
+  width: 40%;
+}

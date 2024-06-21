@@ -1,0 +1,15 @@
+.menu-list{
+    list-style: none;
+    color: black;
+}
+.menu-item a{
+    text-transform: uppercase;
+text-decoration: none;
+color: white;
+font-size: 35px;
+}
+.menu-item {
+    background-color: rgb(97, 97, 97);
+    margin-bottom: 20px;
+    padding: 20px 50px;
+}
