@@ -6,10 +6,10 @@ import Smile4 from "../../img/icon-4.png";
 import Smile5 from "../../img/icon-5.png";
 
 export class SmileList extends React.Component {
-    handleSmileClick = (event) => {
-        const index = event.currentTarget.getAttribute("data-index");
-        this.props.onSmileClick(index);
-      };
+  handleSmileClick = (event) => {
+    const index = event.currentTarget.getAttribute("data-index");
+    this.props.onSmileClick(index);
+  };
   render() {
     const { count } = this.props;
     return (

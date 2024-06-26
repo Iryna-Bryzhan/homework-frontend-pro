@@ -5,8 +5,11 @@ import { Result } from "../../components/Result/Result";
 export class SmilePage extends React.Component {
   constructor(props) {
     super(props);
-    const savedCount = JSON.parse(localStorage.getItem("smileCounts")) || [0, 0, 0, 0, 0];
-    const savedShowResult = JSON.parse(localStorage.getItem("showResult")) || false;
+    const savedCount = JSON.parse(localStorage.getItem("smileCounts")) || [
+      0, 0, 0, 0, 0,
+    ];
+    const savedShowResult =
+      JSON.parse(localStorage.getItem("showResult")) || false;
     this.state = {
       count: savedCount,
       showResult: savedShowResult,
@@ -15,7 +18,7 @@ export class SmilePage extends React.Component {
 
   handleSmileClick = (index) => {
     const newCount = [...this.state.count];
-    newCount[index-1]++;
+    newCount[index - 1]++;
     this.setState({ count: newCount }, () => {
       localStorage.setItem("smileCounts", JSON.stringify(newCount));
     });
@@ -38,7 +41,10 @@ export class SmilePage extends React.Component {
   render() {
     return (
       <div className="smile-container">
-        <SmileList count={this.state.count} onSmileClick={this.handleSmileClick} />
+        <SmileList
+          count={this.state.count}
+          onSmileClick={this.handleSmileClick}
+        />
         <Result
           count={this.state.count}
           showResult={this.state.showResult}
