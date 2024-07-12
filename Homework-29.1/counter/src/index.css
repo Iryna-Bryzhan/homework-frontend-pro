@@ -1,0 +1,20 @@
+body{
+  margin: 0;
+}
+
+.counter {
+  background-color: #282c34eb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: white;
+}
+
+button {
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  width: 50px;
+}
