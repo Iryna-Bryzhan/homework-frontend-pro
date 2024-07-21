@@ -1,0 +1,75 @@
+body {
+  margin: 0;
+}
+
+.app {
+  width: 50%;
+  margin: 0 auto;
+  padding: 2%;
+}
+.form {
+  align-items: center;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 50px auto;
+
+}
+.form input {
+  width: 70%;
+  padding: 10px;
+  font-size: 21px;
+}
+.form button {
+  width: 25%;
+  padding: 10px 10px;
+  font-size: 21px;
+}
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 30px;
+}
+.todo-list li {
+  background-color: rgb(241, 230, 200);
+  padding: 15px 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 21px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.todo-icons {
+  display: flex;
+  gap: 10px;
+}
+.icon {
+  margin-left: 10px;
+  cursor: pointer;
+  color: #007bff;
+}
+
+.icon:hover {
+  color: #0056b3;
+}
+.modal-body input {
+  width: 100%;
+}
+
+.todo-text {
+  flex: 1;
+  cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+.error-message {
+  color: red;
+  font-size: 15px; 
+  margin-top: -40px;
+}
