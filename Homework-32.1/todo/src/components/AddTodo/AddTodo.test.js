@@ -1,60 +1,87 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
-import AddTodo from '../AddTodo/AddTodo';
-import todosReducer from '../../store/store';
+import configureStore from 'redux-mock-store';
+import AddTodo from './AddTodo';
+import { ADD_TODO } from '../../actions/todoActions';
+import '@testing-library/jest-dom/extend-expect';
 
-const store = configureStore({ reducer: { todos: todosReducer } });
+const mockStore = configureStore([]);
 
-test('renders AddTodo component with correct title', () => {
-  render(
-    <Provider store={store}>
-      <AddTodo />
-    </Provider>
-  );
-  const titleElement = screen.getByText(/TODO App/i);  // Тут треба відредагувати заголовок, якщо є
-  expect(titleElement).toBeInTheDocument();
-});
+describe('AddTodo Component', () => {
+  let store;
 
-test('allows input of text and numbers in the input field', () => {
-  render(
-    <Provider store={store}>
-      <AddTodo />
-    </Provider>
-  );
-  const inputElement = screen.getByPlaceholderText(/Enter a new todo/i);
-  fireEvent.change(inputElement, { target: { value: '123abc' } });
-  expect(inputElement.value).toBe('123abc');
-});
+  beforeEach(() => {
+    store = mockStore({
+      todos: [], 
+    });
+    store.dispatch = jest.fn();
+  });
 
-test('shows an error message when trying to add an empty todo', () => {
-  render(
-    <Provider store={store}>
-      <AddTodo />
-    </Provider>
-  );
-  const inputElement = screen.getByPlaceholderText(/Enter a new todo/i);
-  const submitButton = screen.getByText(/Add Todo/i);
-  
-  fireEvent.click(submitButton);
-  
-  const errorMessage = screen.getByText(/Please enter a todo./i);
-  expect(errorMessage).toBeInTheDocument();
-});
+  test('renders AddTodo component', () => {
+    render(
+      <Provider store={store}>
+        <AddTodo />
+      </Provider>
+    );
 
-test('adds a new todo item to the list when valid text is entered', () => {
-  render(
-    <Provider store={store}>
-      <AddTodo />
-    </Provider>
-  );
-  const inputElement = screen.getByPlaceholderText(/Enter a new todo/i);
-  const submitButton = screen.getByText(/Add Todo/i);
-  
-  fireEvent.change(inputElement, { target: { value: 'New Todo Item' } });
-  fireEvent.click(submitButton);
-  
-  const todoItem = screen.getByText(/New Todo Item/i);
-  expect(todoItem).toBeInTheDocument();
+    const inputElement = screen.getByPlaceholderText(/Enter a new todo/i);
+    const submitButton = screen.getByText(/Add Todo/i);
+    expect(inputElement).toBeInTheDocument();
+    expect(submitButton).toBeInTheDocument();
+  });
+
+  test('allows input of text and numbers in the input field', () => {
+    render(
+      <Provider store={store}>
+        <AddTodo />
+      </Provider>
+    );
+    const inputElement = screen.getByPlaceholderText(/Enter a new todo/i);
+    fireEvent.change(inputElement, { target: { value: '123abc' } });
+    expect(inputElement.value).toBe('123abc');
+  });
+
+  test('shows an error message when trying to add an empty todo', () => {
+    render(
+      <Provider store={store}>
+        <AddTodo />
+      </Provider>
+    );
+    const submitButton = screen.getByText(/Add Todo/i);
+    fireEvent.click(submitButton);
+
+    const errorMessage = screen.getByText(/Please enter a todo./i);
+    expect(errorMessage).toBeInTheDocument();
+  });
+
+  test('adds a new todo item to the list when valid text is entered', () => {
+    render(
+      <Provider store={store}>
+        <AddTodo />
+      </Provider>
+    );
+    const inputElement = screen.getByPlaceholderText(/Enter a new todo/i);
+    const submitButton = screen.getByText(/Add Todo/i);
+
+    fireEvent.change(inputElement, { target: { value: 'New Todo Item' } });
+    fireEvent.click(submitButton);
+
+    expect(store.dispatch).toHaveBeenCalledWith({ type: ADD_TODO, payload: 'New Todo Item' });
+  });
+
+  test('clears the input field after adding a new todo', () => {
+    render(
+      <Provider store={store}>
+        <AddTodo />
+      </Provider>
+    );
+    const inputElement = screen.getByPlaceholderText(/Enter a new todo/i);
+    const submitButton = screen.getByText(/Add Todo/i);
+
+    fireEvent.change(inputElement, { target: { value: 'New Todo Item' } });
+    fireEvent.click(submitButton);
+
+    expect(inputElement.value).toBe('');
+  });
 });

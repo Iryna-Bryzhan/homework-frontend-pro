@@ -11,7 +11,7 @@ import { PencilSquare, Trash, CheckCircle } from "react-bootstrap-icons";
 import "../../index.css";
 
 function TodoList() {
-  const todos = useSelector((state) => state.todos.todos);
+  const todos = useSelector((state) => state.todos);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [currentTodo, setCurrentTodo] = useState(null);
@@ -34,7 +34,7 @@ function TodoList() {
     <div>
       <h2>TODO List</h2>
       <ul className="todo-list">
-        {todos.map((todo) => (
+        {todos.map(todo => (
           <li key={todo.id} className={todo.completed ? "completed" : ""}>
             <span
               onClick={() => dispatch(markTodoComplete(todo.id))}
@@ -49,13 +49,16 @@ function TodoList() {
               <CheckCircle
                 className="icon"
                 onClick={() => dispatch(markTodoComplete(todo.id))}
+                aria-label="toggle complete"
               />
               <PencilSquare
                 className="icon"
+                aria-label="edit"
                 onClick={() => handleEditClick(todo)}
               />
               <Trash
                 className="icon"
+                aria-label="delete"
                 onClick={() => dispatch(removeTodo(todo.id))}
               />
             </div>

@@ -20,19 +20,19 @@ function AddTodo() {
   };
 
   return (
-  <div>
-    <form className="form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Enter a new todo"
-      />
-      <Button variant="primary" type="submit">
-        Add Todo
-      </Button>
-    </form>
-    {error && <p className="error-message">{error}</p>}
+    <div>
+      <form className="form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Enter a new todo"
+        />
+        <Button variant="primary" type="submit">
+          Add Todo
+        </Button>
+      </form>
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }

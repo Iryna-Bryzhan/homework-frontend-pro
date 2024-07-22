@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import AddTodo from "./components/AddTodo/AddTodo";
 import TodoCount from "./components/TodoCount/TodoCount";

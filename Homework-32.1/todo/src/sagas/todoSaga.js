@@ -31,14 +31,16 @@ function* editTodoSaga(action) {
 }
 
 function* clearTodosSaga() {
-  const clearedTodos = yield call(api.clearTodos);
-  yield put(clearTodosSuccess(clearedTodos));
+  yield call(api.clearTodos);
+  yield put(clearTodosSuccess());
 }
 
-export default function* todosSaga() {
+function* todosSaga() {
   yield takeEvery(ADD_TODO, addTodoSaga);
   yield takeEvery(REMOVE_TODO, removeTodoSaga);
   yield takeEvery(MARK_TODO_COMPLETE, markTodoCompleteSaga);
   yield takeEvery(EDIT_TODO, editTodoSaga);
   yield takeEvery(CLEAR_TODOS, clearTodosSaga);
 }
+
+export default todosSaga;

@@ -27,4 +27,3 @@ export const editTodo = (todo) => ({
 export const clearTodos = () => ({
   type: CLEAR_TODOS,
 });
-
